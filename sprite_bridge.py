@@ -400,6 +400,7 @@ def process_command(cmd):
     cmd = cmd.strip()
     if not cmd or cmd.startswith("#"):
         return
+    
     if cmd.startswith("SPRITE"):
         parse_sprite_definition(cmd)
     elif cmd.startswith("DRAW"):
@@ -409,7 +410,7 @@ def process_command(cmd):
         sprite_id = int(parts[1])
         instance_id = int(parts[2])
         x = int(parts[3])
-        y = int(parts[4]) # TODO FUDGE FACTOR 
+        y = int(parts[4])
         frame = int(parts[5])
         ok = composite_sprite_with_backing(sprite_id, instance_id, x, y, frame)
         if ok:
@@ -423,6 +424,8 @@ def process_command(cmd):
     elif cmd.startswith("BOX"):
         box = parse_box_command(cmd)
         composite_box(box)
+    elif cmd == "CLEAR":
+        clear_buffer()  # Clear buffer only, no terminal output
     elif cmd == "FLUSH":
         flush_buffer(clear=False)
     elif cmd == "CFLUSH":
