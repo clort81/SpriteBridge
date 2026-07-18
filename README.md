@@ -219,21 +219,16 @@ int main() {
 
 ## Why Use Sprite Bridge?
 
-1. **Simplicity**: the language is basically SPRITE define, DRAW sprite to a column,row, flush buffer
-2. **Clean Abstraction**: Instance-based sprite management eliminates manual screen buffer handling
-3. **Terminal Native**: Works with any ANSI-compatible terminal
-4. **BBS Ready**: Perfect for BBS door games and retro applications
-5. **Procedural**: Easy to understand, modify, and extend
-6. **Language Agnostic**: Any language that can write to the program's stdin can use it
+I had a sdl game that was rendering 2d sprites to a sdl window and i wanted something where the game could just printf draw commands to another program to render to terminal.
 
 ## Limitations
 
 - Sprites overlap in-order (later draws overwrite earlier ones in the buffer)
 - Unique Sprite Instance IDs must be declared by calling program and unique per sprite type, Sprite 2, Instance 521, Sprite 2, Instance 522 share the same sprite base-type but different backing stores and potentially other information.
-- Terminal must support ANSI escape sequences
-- No automatic collision detection (manage in your application)
+- Terminal should support ANSI escape sequences, preferably ECMA-48 full 24-bit RGB
+- No automatic collision detection (manage in the calling application)
 
 ## License
 
-MIT. Use freely for your terminal projects. Accredation to clort.
+MIT. Use freely for your terminal projects. Accredation to clort + help from GLM, Qwen and MiMo.
 
