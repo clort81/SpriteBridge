@@ -47,8 +47,16 @@ UL_OFF = "\x1b[24m"
 # --------------------------
 # GLOBAL STATE
 # --------------------------
-width = 80
-height = 24
+def get_reliable_size(fallback=(80, 24)):
+    # Try stdin (0), stdout (1), then stderr (2)
+    for fd in [0, 1, 2]:
+        try:
+            return os.get_terminal_size(fd)
+        except OSError:
+            continue
+    return fallback
+
+width, height = get_reliable_size()   
 backend = "terminal"
 sprite_registry = {}
 offscreen_buffer = []
