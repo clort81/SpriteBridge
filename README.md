@@ -2,7 +2,7 @@
 
 A lightweight, procedural ANSI art compositor for terminal-based games and applications. Sprite Bridge provides a simple command-based API for managing sprites with automatic backing store restoration, making it ideal for terminal games, BBS doors, and retro-style applications.
 
-![SpriteBridge Demo[https://github.com/clort81/SpriteBridge/blob/main/fishtank_spritebridge.gif
+![SpriteBridge Demo](https://github.com/clort81/SpriteBridge/blob/main/fishtank_spritebridge.gif)
 
 ## Features
 
