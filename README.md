@@ -112,6 +112,13 @@ BOX,0,0,79,24,1          # Single-line border around screen
 BOX,10,10,20,15,5,#      # Filled box with # character
 BOX,0,0,79,24,0          # Clear entire screen
 ```
+### CLEAR
+
+Clear the ofscreen buffer, sprite instances remain unaffected, just their stamps are erased.
+
+```
+CFLUSH
+```
 
 ### FLUSH
 
